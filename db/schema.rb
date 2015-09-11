@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20150909191120) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "locations", ["name"], name: "index_locations_on_name", using: :btree
+
   create_table "metrics", force: :cascade do |t|
     t.integer  "location_id"
     t.string   "name"
@@ -31,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150909191120) do
   end
 
   add_index "metrics", ["location_id"], name: "index_metrics_on_location_id", using: :btree
+  add_index "metrics", ["name"], name: "index_metrics_on_name", using: :btree
 
   add_foreign_key "metrics", "locations"
 end

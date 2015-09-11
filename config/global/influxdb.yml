@@ -1,0 +1,10 @@
+default:
+  database: autohome
+
+test:
+
+development:
+
+staging:
+
+production:

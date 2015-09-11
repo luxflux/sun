@@ -1,0 +1,4 @@
+%h1= Location.model_name.human count: 2
+%ul
+  - @locations.each do |location|
+    %li= link_to location.name, location

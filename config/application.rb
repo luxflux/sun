@@ -1,13 +1,15 @@
 require File.expand_path('../boot', __FILE__)
-require "rails"
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "sprockets/railtie"
+require 'rails'
+require 'active_model/railtie'
+require 'active_job/railtie'
+require 'active_record/railtie'
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'action_view/railtie'
+require 'sprockets/railtie'
+
 Bundler.require(*Rails.groups)
+
 module Sun
   class Application < Rails::Application
     config.i18n.enforce_available_locales = true
@@ -24,5 +26,10 @@ module Sun
     config.active_record.raise_in_transactional_callbacks = true
 
     config.autoload_paths += %W(#{Rails.root}/app/workers)
+
+    Global.configure do |config|
+      config.environment = Rails.env.to_s
+      config.config_directory = Rails.root.join('config/global').to_s
+    end
   end
 end

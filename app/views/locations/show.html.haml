@@ -1,0 +1,8 @@
+%h1= t('.title', name: @location.name)
+
+- @location.metrics.each do |metric|
+  %h2
+    = metric.name
+    %small= metric.current
+
+  %div.remote-chart{data: { url: metric_path(metric) }}
