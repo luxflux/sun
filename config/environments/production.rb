@@ -1,4 +1,4 @@
-require Rails.root.join("config/smtp")
+# require Rails.root.join("config/smtp")
 Rails.application.configure do
   config.cache_classes = true
   config.eager_load = true
