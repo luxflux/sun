@@ -6,7 +6,6 @@ gem 'autoprefixer-rails'
 gem 'bourbon'
 gem 'bower-rails'
 gem 'coffee-rails'
-gem 'dotenv-rails'
 gem 'email_validator'
 gem 'flutie'
 gem 'global'
@@ -30,12 +29,16 @@ gem 'title'
 gem 'uglifier'
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rbenv'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'web-console'
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'awesome_print'
   gem 'bundler-audit', require: false
   gem 'byebug'
