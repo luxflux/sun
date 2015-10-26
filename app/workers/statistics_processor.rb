@@ -18,7 +18,7 @@ class StatisticsProcessor
       timestamp: message['timestamp'],
     }
     Sneakers.logger.info "Writing #{data}"
-    influxdb.write_point message['kind'], data
+    influxdb.write_point "#{message['location']}.port-#{message['port']}", data
     ack!
   end
 

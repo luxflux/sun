@@ -1,0 +1,15 @@
+<%= simple_form_for(@port.persisted? ? @port : [@location, @port]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :location %>
+    <%= f.input :type, collection: %w(Input Output) %>
+    <%= f.input :number %>
+    <%= f.input :signal_type, collection: [['Analog', :analog], ['Digital', :digital]] %>
+    <%= f.input :name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

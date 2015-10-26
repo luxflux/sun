@@ -1,10 +1,14 @@
 class Metric < ActiveRecord::Base
-  belongs_to :location
+  belongs_to :port
 
-  validates :name, :location, presence: true
-  validates :name, uniqueness: true
+  validates :port, presence: true
+  validates :port, uniqueness: true
 
   def last_hours(hours)
     InfluxQueries::LastHours.call(name, hours)
+  end
+
+  def name
+    "#{port.location.name}.port-#{port.number}"
   end
 end

@@ -21,7 +21,7 @@ class InfluxQueries::LastHours
   end
 
   def query
-    "SELECT mean(value) FROM #{name} WHERE time > now() - #{hours}h GROUP BY time(5m)"
+    %Q(SELECT mean(value) FROM "#{name}" WHERE time > now() - #{hours}h GROUP BY time(5m))
   end
 
   def influxdb

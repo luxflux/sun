@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @port.location %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @port.type %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @port.number %>
+</p>
+
+<p>
+  <strong>Signal type:</strong>
+  <%= @port.signal_type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @port.name %>
+</p>
+
+<%= link_to 'Edit', edit_port_path(@port) %> |
+<%= link_to 'Back', location_ports_path(@location) %>

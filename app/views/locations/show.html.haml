@@ -1,8 +1,9 @@
 %h1= t('.title', name: @location.name)
+= link_to t('.ports'), location_ports_path(@location)
 
-- @location.metrics.each do |metric|
+- @location.ports.each do |port|
   %h2
-    = metric.name
-    %small= metric.current
+    = port.name
+    %small= port.metric.current
 
-  %div.remote-chart{data: { url: metric_path(metric) }}
+  %div.remote-chart{data: { url: metric_path(port.metric) }}
