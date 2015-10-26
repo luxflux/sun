@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rules
   resources :locations, only: %i(index show) do
     resources :ports, shallow: true
     resources :ports, as: :inputs, shallow: true

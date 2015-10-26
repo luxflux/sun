@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026222651) do
+ActiveRecord::Schema.define(version: 20151026231540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,5 +43,20 @@ ActiveRecord::Schema.define(version: 20151026222651) do
 
   add_index "ports", ["location_id"], name: "index_ports_on_location_id", using: :btree
 
+  create_table "rules", force: :cascade do |t|
+    t.integer  "input_id"
+    t.integer  "rule"
+    t.integer  "threshold"
+    t.integer  "output_id"
+    t.integer  "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "rules", ["input_id"], name: "index_rules_on_input_id", using: :btree
+  add_index "rules", ["output_id"], name: "index_rules_on_output_id", using: :btree
+
   add_foreign_key "ports", "locations"
+  add_foreign_key "rules", "ports", column: "input_id"
+  add_foreign_key "rules", "ports", column: "output_id"
 end

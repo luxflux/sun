@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Input:</strong>
+  <%= @rule.input %>
+</p>
+
+<p>
+  <strong>Rule:</strong>
+  <%= @rule.rule %>
+</p>
+
+<p>
+  <strong>Threshold:</strong>
+  <%= @rule.threshold %>
+</p>
+
+<p>
+  <strong>Output:</strong>
+  <%= @rule.output %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @rule.state %>
+</p>
+
+<%= link_to 'Edit', edit_rule_path(@rule) %> |
+<%= link_to 'Back', rules_path %>

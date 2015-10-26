@@ -9,4 +9,8 @@ class Port < ActiveRecord::Base
   validates :number, presence: true
   validates :signal_type, presence: true
   validates :name, presence: true
+
+  def to_s
+    "#{location}/#{name}"
+  end
 end

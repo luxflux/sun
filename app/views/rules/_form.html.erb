@@ -1,0 +1,15 @@
+<%= simple_form_for(@rule) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :input %>
+    <%= f.input :rule, collection: %w(higher lower equal) %>
+    <%= f.input :threshold %>
+    <%= f.association :output %>
+    <%= f.input :state, collection: %w(on off) %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
