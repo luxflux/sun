@@ -1,0 +1,8 @@
+default:
+  exchange: 'homeauto'
+  exchange_type: 'topic'
+
+test:
+development:
+staging:
+production:
