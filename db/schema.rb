@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028201657) do
+ActiveRecord::Schema.define(version: 20151028230926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_log_entries", force: :cascade do |t|
+    t.integer  "port_id"
+    t.string   "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "action_log_entries", ["port_id"], name: "index_action_log_entries_on_port_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -56,6 +65,7 @@ ActiveRecord::Schema.define(version: 20151028201657) do
   add_index "rules", ["input_id"], name: "index_rules_on_input_id", using: :btree
   add_index "rules", ["output_id"], name: "index_rules_on_output_id", using: :btree
 
+  add_foreign_key "action_log_entries", "ports"
   add_foreign_key "ports", "locations"
   add_foreign_key "rules", "ports", column: "input_id"
   add_foreign_key "rules", "ports", column: "output_id"
