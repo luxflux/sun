@@ -40,7 +40,7 @@ RSpec.describe InfluxQueries::LastHours do
     end
 
     it 'queries for the given hours' do
-      expected_query = "SELECT mean(value) FROM temperature WHERE time > now() - 26h GROUP BY time(5m)"
+      expected_query = 'SELECT mean(value) FROM "temperature" WHERE time > now() - 26h GROUP BY time(5m)'
       expect(influxdb_double).to receive(:query).with(expected_query)
       instance.call
     end
