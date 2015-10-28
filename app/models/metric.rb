@@ -8,6 +8,6 @@ class Metric < ActiveRecord::Base
   end
 
   def name
-    "#{port.location.name}.port-#{port.number}"
+    "#{input.location.name}.port-#{input.number}"
   end
 end
