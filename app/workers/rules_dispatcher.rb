@@ -14,7 +14,12 @@ class RulesDispatcher
     Sneakers.logger.info "RuleDispatcher: #{message}"
 
     input.rules.each do |rule|
-      RuleProcessor.call(rule) if rule.matches?(message.value)
+      if rule.matches?(message.value)
+        Sneakers.logger.info "#{rule} matched"
+        RuleProcessor.call(rule)
+      else
+        Sneakers.logger.debug "#{rule} did not match"
+      end
     end
 
     ack!
