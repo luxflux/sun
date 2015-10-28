@@ -1,5 +1,8 @@
 ---
 en:
+  action_log_entries:
+    index:
+      title: Last Sent Actions
   date:
     formats:
       default: "%m/%d/%Y"

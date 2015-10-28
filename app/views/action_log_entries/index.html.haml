@@ -1,0 +1,11 @@
+%h1= t('.title', name: @port.name)
+
+%table
+  %tr
+    %th= ActionLogEntry.human_attribute_name :state
+    %th= ActionLogEntry.human_attribute_name :created_at
+
+  - @action_log_entries.each do |entry|
+    %tr
+      %td= entry.state
+      %td= entry.created_at

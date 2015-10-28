@@ -1,5 +1,6 @@
 class Port < ActiveRecord::Base
   belongs_to :location
+  has_many :action_log_entries
 
   enum signal_type: %i(analog digital)
 
