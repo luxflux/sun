@@ -10,4 +10,15 @@ class Rule < ActiveRecord::Base
   validates :rule, presence: true
   validates :threshold, presence: true
   validates :state, presence: true
+
+  def matches?(value)
+    case rule.to_sym
+    when :higher
+      value > threshold
+    when :equal
+      value == threshold
+    when :lower
+      value < threshold
+    end
+  end
 end
