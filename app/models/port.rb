@@ -8,7 +8,7 @@ class Port < ActiveRecord::Base
   validates :type, presence: true
   validates :number, presence: true
   validates :signal_type, presence: true
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   def to_s
     "#{location}/#{name}"

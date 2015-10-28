@@ -1,10 +1,9 @@
 FactoryGirl.define do
   factory :rule do
-    input nil
-rule 1
-threshold 1
-output nil
-state 1
+    input
+    rule 'higher'
+    threshold 100
+    output
+    state 'on'
   end
-
 end

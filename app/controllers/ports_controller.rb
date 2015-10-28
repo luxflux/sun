@@ -13,7 +13,7 @@ class PortsController < ApplicationController
 
   # GET /ports/new
   def new
-    @port = Port.new
+    @port = @location.ports.new
   end
 
   # GET /ports/1/edit
@@ -22,7 +22,7 @@ class PortsController < ApplicationController
 
   # POST /ports
   def create
-    @port = Port.new(port_params)
+    @port = @location.ports.new(port_params)
 
     if @port.save
       redirect_to @port, notice: 'Port was successfully created.'
@@ -43,7 +43,7 @@ class PortsController < ApplicationController
   # DELETE /ports/1
   def destroy
     @port.destroy
-    redirect_to ports_url, notice: 'Port was successfully destroyed.'
+    redirect_to location_ports_url(@location), notice: 'Port was successfully destroyed.'
   end
 
   private

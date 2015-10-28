@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026231540) do
+ActiveRecord::Schema.define(version: 20151028201657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20151026231540) do
     t.float    "current"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "port_id"
+    t.integer  "input_id"
   end
 
   create_table "ports", force: :cascade do |t|
