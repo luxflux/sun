@@ -38,6 +38,6 @@ RSpec.describe RuleProcessor do
   describe '#queue' do
     subject { instance.queue }
 
-    it { is_expected.to eq("#{rule.output.location.name}.port-#{rule.output.number}") }
+    it { is_expected.to eq("actions.#{rule.output.location.name}.port-#{rule.output.number}") }
   end
 end

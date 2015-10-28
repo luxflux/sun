@@ -24,7 +24,7 @@ class RuleProcessor
   end
 
   def queue
-    "#{location_name}.port-#{port_number}"
+    "actions.#{location_name}.port-#{port_number}"
   end
 
   def location_name
