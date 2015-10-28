@@ -1,6 +1,5 @@
 class Port < ActiveRecord::Base
   belongs_to :location
-  has_one :metric
 
   enum signal_type: %i(analog digital)
 

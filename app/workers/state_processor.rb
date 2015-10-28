@@ -19,7 +19,7 @@ class StateProcessor
     location = Location.where(name: location_name).first_or_create!
 
     Sneakers.logger.info "Ensure #{location_name}/#{port} exists"
-    port = location.ports.where(number: port).first_or_create!(signal_type: signal_type, type: 'Input', name: "Port ##{port}")
+    port = location.inputs.where(number: port).first_or_create!(signal_type: signal_type, type: 'Input', name: "Port ##{port}")
     Sneakers.logger.info "Update current value of #{location_name}/#{port} to #{value}"
     metric = port.metric || port.build_metric
     metric.current = value
