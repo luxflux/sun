@@ -10,7 +10,7 @@ set :default_env, 'EXECJS_RUNTIME' => 'Node'
 set :deploy_to, '/srv/autohome'
 
 # Default value for linked_dirs is []
-# set :linked_files, -> { %w{config/database.yml config/secrets.yml} }
+set :linked_files, -> { %w{.env} }
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/assets}
 
 set :rbenv_type, :system
