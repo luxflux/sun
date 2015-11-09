@@ -27,6 +27,7 @@ gem 'simple_form'
 gem 'sneakers'
 gem 'title'
 gem 'uglifier'
+gem 'dotenv-rails'
 
 group :development do
   gem 'capistrano'
@@ -39,7 +40,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'awesome_print'
   gem 'bundler-audit', require: false
   gem 'byebug'
