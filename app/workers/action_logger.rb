@@ -1,7 +1,7 @@
 class ActionLogger
   include Sneakers::Worker
 
-  from_queue 'rules',
+  from_queue 'logs',
              routing_key: 'actions.#',
              exchange: Global.amqp.exchange,
              exchange_type: Global.amqp.exchange_type,
