@@ -7,11 +7,9 @@ RSpec.describe StatisticsProcessor do
   let(:value) { 100 }
   let(:signal_type) { 'analog' }
   let(:timestamp) { Time.now.to_i }
-  let(:influx_client_double) { instance_double(InfluxDB::Client) }
 
   before do
-    allow(InfluxDB::Client).to receive(:new).and_return(influx_client_double)
-    allow(influx_client_double).to receive(:write_point)
+    allow(Keen).to receive(:publish)
   end
 
   describe '#work' do
@@ -45,11 +43,14 @@ RSpec.describe StatisticsProcessor do
     it 'writes a datapoint' do
       expected_name = "#{location_name}.port-#{port_number}"
       expected_data = {
-        values: { value: value },
-        tags: { location: location_name },
-        timestamp: timestamp,
+        location: location_name,
+        port: port_number,
+        value: value,
+        keen: {
+          timestamp: Time.now.iso8601
+        }
       }
-      expect(influx_client_double).to receive(:write_point).with(expected_name, expected_data)
+      expect(Keen).to receive(:publish).with(expected_name, expected_data)
       subject
     end
   end

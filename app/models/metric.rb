@@ -4,7 +4,7 @@ class Metric < ActiveRecord::Base
   validates :input, presence: true
 
   def last_hours(hours)
-    InfluxQueries::LastHours.call(name, hours)
+    DataQueries::LastHours.call(name, hours)
   end
 
   def name

@@ -1,0 +1,13 @@
+default:
+  project_id: <%= ENV['KEEN_PROJECT_ID'] %>
+  master_key: <%= ENV['KEEN_MASTER_KEY'] %>
+  write_key: <%= ENV['KEEN_WRITE_KEY'] %>
+  read_key: <%= ENV['KEEN_READ_KEY'] %>
+
+test:
+
+development:
+
+staging:
+
+production:
