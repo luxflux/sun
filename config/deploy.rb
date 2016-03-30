@@ -14,6 +14,6 @@ set :linked_files, -> { %w{.env} }
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/assets}
 
 set :rbenv_type, :system
-set :rbenv_ruby, '2.2.3'
+set :rbenv_ruby, '2.3.0'
 
 set :passenger_restart_with_touch, true
